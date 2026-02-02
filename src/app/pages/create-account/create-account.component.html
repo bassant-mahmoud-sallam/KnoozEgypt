@@ -1,0 +1,243 @@
+<section class="signin">
+  <div class="signin__left">
+    <div class="signin__brand">
+      <!-- <img class="signin__logo" src="/images/logo5.png" alt="Knooz Egypt" /> -->
+    </div>
+  </div>
+
+  <div class="signin__right">
+    <div class="signin__formWrap">
+      <h2 class="signin__heading">Create Account</h2>
+
+      <form (ngSubmit)="submit()" [formGroup]="registerForm" class="signin__form">
+
+        <!-- name input -->
+        <div class="mb-4">
+          @let nameControl = registerForm.get("name");
+
+
+          <div class="relative">
+            <span class="signin__icon">
+              <!-- user icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M20 21a8 8 0 0 0-16 0"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+            <input
+              type="text"
+              formControlName="name"
+              class="flowbite-input"
+              placeholder="Name"
+            />
+          </div>
+
+          <!-- error email -->
+          @if(nameControl?.errors && nameControl?.touched) {
+              @if(nameControl?.getError("required")) {
+                  <p class="signin__hint">Name is required.</p>
+              }
+              @if(nameControl?.getError("minlength")) {
+                <p class="signin__hint">minLength 3 </p>
+              }
+              @if(nameControl?.getError("maxlength")) {
+                <p class="signin__hint">maxLength 20 </p>
+              }
+          }
+        </div>
+
+        <!-- Email input -->
+        <div class="mb-4">
+          @let emailControl = registerForm.get("email");
+
+
+          <div class="relative">
+            <span class="signin__icon">
+              <!-- mail icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+
+            <input
+              type="email"
+              formControlName="email"
+              class="flowbite-input"
+              placeholder="Email"
+            />
+          </div>
+
+          <!-- error email -->
+          @if(emailControl?.errors && emailControl?.touched) {
+              @if(emailControl?.getError("required")) {
+                  <p class="signin__hint">Email is required.</p>
+              }
+              @if(emailControl?.getError("email")) {
+                <p class="signin__hint">Please enter a valid email.</p>
+              }
+          }
+        </div>
+
+        <!-- Password input -->
+        <div class="mb-4">
+          @let passwordControl = registerForm.get("password");
+
+
+          <div class="relative">
+            <span class="signin__icon">
+              <!-- lock icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 11h12v10H6V11Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+
+            <input
+              type="password"
+              formControlName="password"
+              class="flowbite-input"
+              placeholder="Password"
+            />
+          </div>
+
+          <!-- error password -->
+          @if(passwordControl?.errors && passwordControl?.touched) {
+            @if(passwordControl?.getError("required")) {
+              <p class="signin__hint">Password is required</p>
+            }
+          }
+          @if(passwordControl?.getError("minlength")) {
+            <p class="signin__hint">Password must be at least 6 characters.</p>
+          }
+        </div>
+
+        <!-- rePassword input -->
+        <div class="mb-4">
+          @let rePasswordControl = registerForm.get("password_confirmation");
+
+          <div class="relative">
+            <span class="signin__icon">
+              <!-- lock icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 11h12v10H6V11Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+
+            <input
+              type="password"
+              formControlName="password_confirmation"
+              class="flowbite-input"
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <!-- error password -->
+          @if(rePasswordControl?.getError('required') && rePasswordControl?.touched) {
+            <p class="signin__hint">rePasswordControl is required</p>
+          }
+          @if(registerForm.getError('mismatch') && rePasswordControl?.dirty) {
+            <p class="signin__hint">rePassword confirmation invalid</p>
+          }
+        </div>
+
+        <!-- phone input -->
+        <div class="mb-4">
+          @let phoneControl = registerForm.get("phone");
+
+          <div class="relative">
+            <span class="signin__icon">
+              <!-- phone icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2
+                  19.8 19.8 0 0 1-8.63-3.07
+                  19.5 19.5 0 0 1-6-6
+                  19.8 19.8 0 0 1-3.07-8.67
+                  A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                  c.12.86.31 1.7.57 2.5a2 2 0 0 1-.45 2.11L8.09 9.91
+                  a16 16 0 0 0 6 6l1.58-1.14
+                  a2 2 0 0 1 2.11-.45
+                  c.8.26 1.64.45 2.5.57A2 2 0 0 1 22 16.92Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            </span>
+
+            <input
+              type="tel"
+              formControlName="phone"
+              class="flowbite-input"
+              placeholder="Phone"
+            />
+          </div>
+
+          <!-- error phone -->
+          @if(phoneControl?.errors && phoneControl?.touched) {
+            <p class="signin__hint">Phone is required</p>
+          }
+        </div>
+
+        <!-- Country -->
+        <div class="mb-5">
+          @let countryControl = registerForm.get("country_id");
+
+          <select formControlName="country_id" class="flowbite-select" placeholder="Choose your country">
+            <option value="" disabled selected hidden>Choose your country</option>
+            @for(counrty of theCountries ; track counrty.id) {
+              <option [ngValue]="counrty.id">{{counrty.name}}</option>
+            }
+          </select>
+
+          @if(countryControl?.errors && countryControl?.touched) {
+            <p class="signin__hint">Please choose your country.</p>
+          }
+
+        </div>
+
+
+
+        <!-- Button -->
+        <button type="submit" class="flowbite-btn" [disabled]="registerForm.invalid || loading" >
+          Create Account
+          @if(loading) {
+            <i class="fas fa-spin fa-spinner"></i>
+          }
+        </button>
+
+        <!-- msg from bcakend -->
+        @if(errorMsgUserNotSignIN) {
+          <p class="text-white bg-red-500 px-2 py-4 border shadow rounded my-2">{{errorMsgUserNotSignIN}}</p>
+        }
+        @if(successMsgUserSignIN) {
+          <p class="text-white bg-[#673ab7] px-2 py-4 border shadow rounded my-2">{{successMsgUserSignIN}}</p>
+        }
+
+        <!-- Create account -->
+        <p class="signin__footer">
+          Already have an account?
+          <a routerLink="/signin" class="signin__link">Sign In</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+

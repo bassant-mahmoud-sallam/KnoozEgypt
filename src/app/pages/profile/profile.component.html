@@ -1,0 +1,100 @@
+@if (viewUserProfile) {
+  <div class="profile">
+
+  <!-- Cover -->
+  <div class="cover">
+    <img class="cover__img" [src]="viewUserProfile.cover_image || '/images/defaultcoverimage2.png'" alt="cover" />
+    <div class="cover__overlay"></div>
+
+  </div>
+
+  <!-- Card -->
+  <div class="card">
+
+    <!-- Big avatar -->
+    <div class="avatar-wrap">
+      <img class="avatar" [src]="viewUserProfile.profile_image || '/images/defaultprofile2.png'" alt="avatar" />
+    </div>
+
+    <div class="head">
+      <div class="info">
+        <h1 class="name">{{ viewUserProfile.name }}</h1>
+        <div class="username">{{viewUserProfile.email }}</div>
+      </div>
+
+      <a class="edit-btn" routerLink="/editprofile">Edit Profile</a>
+    </div>
+
+    @if (viewUserProfile.bio) {
+      <p class="bio">{{viewUserProfile.bio }}</p>
+    }
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab" [class.active]="tab==='posts'" (click)="setTab('posts')">
+        Posts
+      </button>
+      <button class="tab" [class.active]="tab==='saved'" (click)="setTab('saved')">
+        Saved
+      </button>
+    </div>
+
+    <!-- Grid -->
+    @if (tab==='posts') {
+      <div class="grid">
+        @for (userPost of userPosts; track userPost.id) {
+          <div class="img cursor-pointer" [routerLink]="['/postDetails' , userPost.id]">
+            <img [src]="userPost.image" [alt]="userPost.caption" />
+          </div>
+        } @empty {
+          <div>No posts yet</div>
+        }
+    </div>
+    }
+
+    @if (tab==='saved') {
+      <div class="grid">
+      @for (savePost of savedPosts; track savePost.id) {
+        <div class="img cursor-pointer" [routerLink]="['/postDetails' , savePost.id]">
+          <img [src]="savePost.image" alt="not found" />
+        </div>
+      } @empty {
+        <div> No saved posts</div>
+      }
+    </div>
+    }
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a class="fab" routerLink="/posts" aria-label="Create post">
+      <!-- Posts grid icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M4 4h7v7H4V4Z" stroke="currentColor" stroke-width="2" />
+        <path d="M13 4h7v7h-7V4Z" stroke="currentColor" stroke-width="2" />
+        <path d="M4 13h7v7H4v-7Z" stroke="currentColor" stroke-width="2" />
+        <path d="M13 13h7v7h-7v-7Z" stroke="currentColor" stroke-width="2" />
+      </svg>
+    </a>
+
+    <a class="nav-item" routerLink="/home" aria-label="Home">
+      <!-- home icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5Z"
+              stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+
+    <a class="fab" routerLink="/createpost" aria-label="Create post">
+      <span>+</span>
+    </a>
+
+
+  </footer>
+
+</div>
+}
+
+

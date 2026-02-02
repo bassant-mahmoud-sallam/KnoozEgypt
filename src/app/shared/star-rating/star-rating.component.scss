@@ -1,0 +1,25 @@
+.stars {
+  display: inline-flex;
+  gap: 3px;
+  line-height: 1;
+}
+
+.star {
+  font-size: 14px;
+}
+
+.star.full {
+  color: #fbbf24; // ذهبي
+}
+
+.star.empty {
+  color: rgba(156, 163, 175, 0.7); // رمادي
+}
+
+/* نص نجمة: نخلي النص دهبي والنص رمادي باستخدام background-clip */
+.star.half {
+  background: linear-gradient(90deg, #fbbf24 50%, rgba(156, 163, 175, 0.7) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,60 @@
+<div class="page">
+
+    <app-navbar variant="purple"></app-navbar>
+
+
+  <div class="top">
+    <!-- Back -->
+    <a class="back" routerLink="/categories">
+      <span class="arrow">←</span>
+      Back
+    </a>
+
+    <!-- Search -->
+    <div class="search">
+      <span class="icon">🔍</span>
+      <input [(ngModel)]="textInput" type="text" placeholder="Search place..." />
+    </div>
+  </div>
+
+  <h1 class="title">{{ categoryName }}</h1>
+
+  <!-- Places Grid -->
+  <div class="grid">
+
+    @for (place of categoryPlaces | search:textInput; track place.id) {
+      <div class="card" [routerLink]="['/place' , place.id]" [queryParams]="{ from: 'category', categoryId: categoryId }">
+
+        <!-- Save Button -->
+        <button class="save"  aria-label="Save place" (click)="toggleSave(place, $event)" [class.active]="place.is_saved">
+          <svg class="bm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6.5 3.8c0-.9.7-1.6 1.6-1.6h7.8c.9 0 1.6.7 1.6 1.6v17.7c0 .6-.7 1-1.2.7l-5.3-3.2a1.6 1.6 0 0 0-1.6 0l-5.3 3.2c-.5.3-1.2-.1-1.2-.7V3.8Z"
+              class="bm-path"
+            />
+          </svg>
+        </button>
+
+
+        <div class="img">
+          <img [src]="place.cover_image" [alt]="place.name" />
+        </div>
+
+        <div class="info">
+          <div class="name">{{ place.name }}</div>
+
+        <div class="rate">
+          <app-star-rating [rating]="place.rating"></app-star-rating>
+          <span>{{place.rating}}</span>
+          <span>{{place.views_count}}</span>
+        </div>
+      </div>
+
+    </div>
+
+    }
+
+  </div>
+
+</div>
+

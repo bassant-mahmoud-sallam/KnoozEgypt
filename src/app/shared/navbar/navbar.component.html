@@ -1,0 +1,96 @@
+<nav class="" [ngClass]="variant">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/images/logonav.jpg" class="w-[6rem]" alt="Knooz Egypt" />
+    </a>
+
+    <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse gap-[0.5rem]">
+
+      <!-- user profile -->
+      <button type="button" class="flex text-sm bg-[#d4c0fad9] rounded-full md:me-0 focus:ring-4 focus:ring-[#d4c0fad9] " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <img class="w-8 h-8 rounded-full" [src]="userImageUrl || '/images/defaultprofile2.png'" alt="user photo">
+      </button>
+      <!-- Dropdown menu of user-->
+      <div class="z-50 hidden my-4 text-base list-none bg-red divide-y  rounded-lg shadow-sm bg-[#b08fe9]" id="user-dropdown">
+        <div class="px-4 py-3  ">
+          <span class="block text-sm text-white font-bold ">{{userName}}</span>
+          <span class="block text-sm  text-[#d4c0fad9] truncate font-bold">{{userEmail}}</span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a routerLink="/profile"  class="block px-4 py-2 text-sm text-white font-bold">
+              View Profile
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/createpost" class="block px-4 py-2 text-sm text-white font-bold">
+              Create Post
+              <i class="fa-solid fa-plus"></i>
+            </a>
+          </li>
+          <li>
+            <a  (click)="signOut()"  class="block px-4 py-2 text-sm  text-red-800 font-bold cursor-pointer">
+              Sign out
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- lang -->
+      <button
+        type="button"
+        data-dropdown-toggle="language-dropdown-menu"
+        class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-white rounded-lg cursor-pointer hover:bg-[#b08fe9]">
+
+        {{ selectedLangLabel }}
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+
+      <div class="z-50 hidden my-4 text-base list-none bg-[#b08fe9] divide-y divide-gray-100 rounded-lg shadow-sm" id="language-dropdown-menu">
+        <ul class="py-2 font-medium" role="none">
+          <li>
+            <a (click)="changeLang('en', 'English (US)')" class="block px-4 py-2 text-sm text-white hover:bg-[#a88cddd9] cursor-pointer" role="menuitem">
+              English (US)
+            </a>
+          </li>
+
+          <li>
+            <a (click)="changeLang('ar', 'Arabic')" class="block px-4 py-2 text-sm text-white hover:bg-[#a88cddd9] cursor-pointer" role="menuitem">
+              Arabic
+            </a>
+          </li>
+        </ul>
+</div>
+
+      <!-- toggle button in media-->
+      <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#493078d9] rounded-lg md:hidden hover:bg-[#a88cddd9] focus:outline-none focus:ring-2 focus:ring-[#c4a7f9d9] " aria-controls="navbar-language" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- links -->
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
+      <ul class="flex flex-col gap-8 font-medium p-4 md:p-0 mt-4 border  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent  bg-[#b08fe9] border-[#c4a7f9d9]">
+        <li>
+          <a routerLink="/home" routerLinkActive="link-line" class="block py-2 px-3 text-white rounded-sm md:p-0 text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent " aria-current="page">Home</a>
+        </li>
+        <li>
+          <a routerLink="/posts" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">Posts</a>
+        </li>
+        <li>
+          <a routerLink="/saved-places" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">Saved Places</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+

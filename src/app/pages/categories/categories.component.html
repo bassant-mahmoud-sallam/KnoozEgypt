@@ -1,0 +1,42 @@
+<div class="page">
+
+  <app-navbar></app-navbar>
+
+
+  <!-- Hero -->
+  <header class="hero">
+
+    <div class="hero-inner">
+      <!-- Search -->
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input [(ngModel)]="textInput" type="text" placeholder="Search category..." />
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="content">
+
+    <h2 class="title">Explore Categories</h2>
+
+    <div class="grid">
+      @for (cat of allCategories | search:textInput; track cat.id) {
+        <div class="card" >
+          <img [src]="cat.image_cover" [alt]="cat.name" />
+
+          <div class="shade"></div>
+
+          <div class="card-inner">
+            <div class="name">{{ cat.name }}</div>
+            <a class="view" [routerLink]="['/category' , cat.id]">
+              View <span>→</span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+
+  </main>
+</div>
+

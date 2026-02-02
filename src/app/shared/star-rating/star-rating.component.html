@@ -1,0 +1,11 @@
+<div class="stars" aria-label="rating">
+  <!-- full -->
+  <span class="star full" *ngFor="let _ of fullStars">★</span>
+
+  <!-- half -->
+  <span class="star half" *ngIf="hasHalf">★</span>
+
+  <!-- empty -->
+  <span class="star empty" *ngFor="let _ of emptyStars">★</span>
+</div>
+

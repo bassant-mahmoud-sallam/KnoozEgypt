@@ -1,0 +1,68 @@
+<section class="hero">
+  <app-navbar></app-navbar>
+
+  <div class="hero__content">
+    <h1 class=" ">Explore The<br/>Treasures of Egypt</h1>
+  </div>
+</section>
+
+<!-- Body -->
+  <main class="content">
+
+    <!-- Categories -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Categories</h2>
+        <a class="see-all" routerLink="/categories">
+          See All <span class="arrow">▾</span>
+        </a>
+      </div>
+
+
+      <div class="cats">
+        @for (category of categoriesHome; track category.id) {
+          <a class="cat-card" [routerLink]="['/category' , category.id]">
+            <img [src]="category.image_cover" [alt]="category.name">
+            <div class="shade"></div>
+            <div class="title">{{category.name }}</div>
+          </a>
+        }
+      </div>
+
+    </section>
+
+    <!-- Recommended Places -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Recommended Places</h2>
+        <a class="see-all" routerLink="/recommendation">
+          See All <span class="arrow">▾</span>
+        </a>
+      </div>
+
+      <div class="places">
+        @for (recommend of recommendPlacesHome; track recommend.id) {
+          <a class="place-card" [routerLink]="['/place' , recommend.id]">
+          <img [src]="recommend.cover_image" [alt]="recommend.name">
+          <div class="info">
+            <div class="left">
+              <div class="name">{{ recommend.name }}</div>
+              <div class="stars">
+                <app-star-rating [rating]="recommend.rating"></app-star-rating>
+                <span class="rate">{{ recommend.rating_count }}</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="city">{{ recommend.governorate.name}}</div>
+              <span class="count">{{recommend.views_count }}</span>
+            </div>
+          </div>
+        </a>
+        }
+      </div>
+
+    </section>
+
+  </main>
+
+

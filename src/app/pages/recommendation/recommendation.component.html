@@ -1,0 +1,38 @@
+<div class="page">
+
+    <app-navbar variant="purple"></app-navbar>
+
+
+  <div class="top">
+    <!-- Search -->
+    <div class="search">
+      <span class="icon">🔍</span>
+      <input [(ngModel)]="textInput" type="text" placeholder="Search place..." />
+    </div>
+  </div>
+
+  <h1 class="title">Recommended Places</h1>
+
+  <div class="places">
+        @for (recommend of allRecommendedPlaces | search:textInput ; track recommend.id) {
+          <a class="place-card" [routerLink]="['/place' , recommend.id]" [queryParams]="{ fromrecommend: 'recommend'}">
+          <img [src]="recommend.cover_image" [alt]="recommend.name">
+          <div class="info">
+            <div class="left">
+              <div class="name">{{ recommend.name }}</div>
+              <div class="stars">
+                <app-star-rating [rating]="recommend.rating"></app-star-rating>
+                <span class="rate">{{ recommend.rating_count }}</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="city">{{ recommend.governorate.name}}</div>
+              <span class="count">{{recommend.views_count }}</span>
+            </div>
+          </div>
+        </a>
+        }
+      </div>
+
+</div>
+

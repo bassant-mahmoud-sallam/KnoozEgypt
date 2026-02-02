@@ -1,0 +1,169 @@
+.signin {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  background: radial-gradient(1200px 800px at 30% 0%, #efe7ff 0%, #e9ddff 35%, #e7dbff 100%);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__left {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    background-image:
+    linear-gradient(180deg, rgba(54, 29, 113, 0.55), rgba(40, 20, 90, 0.25)),
+      url("/images/create-acount2.jpg");
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 900px) {
+      min-height: 42vh;
+    }
+  }
+
+  &__brand {
+    width: min(520px, 90%);
+    margin-top: 64px;
+    color: #fff;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+
+    @media (max-width: 900px) {
+      margin-top: 40px;
+    }
+  }
+
+  // &__logo {
+  //   width: 45rem;
+  // }
+
+
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 42px 22px;
+  }
+
+  // هنا أهم حاجة: مفيش Card/Border — فورم full-height feeling
+  &__formWrap {
+    width: min(520px, 100%);
+  }
+
+  &__heading {
+    font-size: 38px;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  &__form {
+    background: transparent; // بدون حواف
+  }
+
+  &__error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.22);
+    color: #991b1b;
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+
+  &__hint {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #b91c1c;
+  }
+
+  &__footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    font-size: 14px;
+  }
+
+  &__link {
+    color: #4f46e5;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 6px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(55, 65, 81, 0.7);
+    pointer-events: none;
+  }
+}
+
+/* Flowbite-like inputs (مع Tailwind classes جاهزة) */
+.flowbite-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  background: rgba(255, 255, 255, 0.78);
+  outline: none;
+  transition: 0.2s ease;
+
+  &:focus {
+    border-color: rgba(79, 70, 229, 0.65);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+.flowbite-select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  background: rgba(255, 255, 255, 0.78);
+  outline: none;
+  transition: 0.2s ease;
+
+  &:focus {
+    border-color: rgba(79, 70, 229, 0.65);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+.flowbite-btn {
+  width: 100%;
+  border: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #4f46e5 0%, #6d28d9 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none;
+  }
+}

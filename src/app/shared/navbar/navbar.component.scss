@@ -1,0 +1,32 @@
+ul a.link-line::after {
+
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 999px;
+
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+
+  &.transparent {
+    background: transparent;
+  }
+
+  &.purple {
+    position: sticky; // أو خليه absolute لو انتي عايزة
+    top: 0;
+    background: #830a98a1; // purple
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  }
+}

@@ -1,0 +1,171 @@
+<div class="feed">
+
+  <div class="top">
+    <a class="back" (click)="back()">
+      <span class="arrow">←</span>
+      Back
+    </a>
+  </div>
+
+  @if (post()) {
+    <article class="post">
+
+      <!-- header -->
+      <div class="post__head">
+        <div class="left">
+          <img
+            class="avatar cursor-pointer"
+            [routerLink]="['/anotherUser', post()?.user?.id]"
+            [src]="post()?.user?.profile_image || '/images/defaultprofile2.png'"
+            alt="user"
+          />
+          <div class="meta">
+            <div class="name">{{ post()?.user?.name}}</div>
+            <div class="time">{{ post()?.created_at }}</div>
+          </div>
+        </div>
+
+        <!-- edit & delete my post -->
+        @if (isMyPost()) {
+
+          <div class="relative">
+            <button class="dots-btn" (click)="toggleMenu()">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+            <!-- Dropdown -->
+            @if (menuOpen()) {
+              <div class="dropdown">
+                <button (click)="openEditModal()">
+                  Edit Post
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+                <button class="delete" (click)="deletePost()">
+                  Delete Post
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+
+              </div>
+            }
+
+          </div>
+
+        }
+      </div>
+
+      <!-- image -->
+      <div class="post__img">
+        <img [src]="post()?.image" alt="post image" />
+      </div>
+
+      <!-- caption -->
+      @if (post()?.caption) {
+        <div class="post__caption">
+          {{ post()?.caption }}
+        </div>
+      }
+
+      <!-- actions -->
+      <div class="post__actions">
+
+        <!-- like -->
+        <button
+          class="icon-btn"
+          (click)="toggleLike()"
+          [class.liked]="post()?.is_liked"
+          aria-label="like"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8l.6.6L12 21l7.8-7.8.6-.6a5.5 5.5 0 0 0 0-7.8Z"
+              class="stroke"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8l.6.6L12 21l7.8-7.8.6-.6a5.5 5.5 0 0 0 0-7.8Z"
+              class="fill"
+            />
+          </svg>
+          <span class="count">{{ post()?.likes_count }}</span>
+        </button>
+
+        <!-- comments -->
+        <button class="icon-btn" aria-label="comments" (click)="toggleComments()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M21 14a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="count">{{ post()?.comments_count }}</span>
+        </button>
+
+        <!-- save -->
+        <button
+          class="icon-btn save"
+          (click)="toggleSave()"
+          [class.saved]="post()?.is_saved"
+          aria-label="save"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6.5 3.8c0-.9.7-1.6 1.6-1.6h7.8c.9 0 1.6.7 1.6 1.6v17.7c0 .6-.7 1-1.2.7l-5.3-3.2a1.6 1.6 0 0 0-1.6 0l-5.3 3.2c-.5.3-1.2-.1-1.2-.7V3.8Z"
+              class="bm-stroke"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.5 3.8c0-.9.7-1.6 1.6-1.6h7.8c.9 0 1.6.7 1.6 1.6v17.7c0 .6-.7 1-1.2.7l-5.3-3.2a1.6 1.6 0 0 0-1.6 0l-5.3 3.2c-.5.3-1.2-.1-1.2-.7V3.8Z"
+              class="bm-fill"
+            />
+          </svg>
+        </button>
+
+      </div>
+    </article>
+
+    @if (editModalOpen()) {
+
+      <div class="modal-backdrop">
+
+        <div class="modal-box">
+          <h2>Edit Post</h2>
+
+          <textarea
+            [value]="editCaption()"
+            (input)="editCaption.set($any($event.target).value)">
+          </textarea>
+
+          <div class="actions">
+            <button (click)="editModalOpen.set(false)">Cancel</button>
+
+            <button class="save" (click)="updatePost()">
+              Save
+            </button>
+          </div>
+        </div>
+
+      </div>
+    }
+
+    <!-- comment component -->
+    @if (commentsOpen()) {
+      @defer {
+        <app-comment
+          [idPost]="post()?.id"
+          (commentCountChange)="updateCommentsCount($event)">
+        </app-comment>
+      } @loading {
+        <h1 class="text-center text-gray-500">Loading....</h1>
+      } @placeholder {
+        <h1 class="text-center text-gray-400">Opening comments...</h1>
+      }
+    }
+
+  }
+</div>
