@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { StarRatingComponent } from "../../shared/star-rating/star-rating.component";
 import { SearchPipe } from "../../shared/pipe/search.pipe";
 import { RouterLink} from "@angular/router";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-recommendation',
-  imports: [NavbarComponent, FormsModule, StarRatingComponent, SearchPipe , RouterLink],
+  imports: [NavbarComponent, FormsModule, StarRatingComponent, SearchPipe , RouterLink , TranslatePipe],
   templateUrl: './recommendation.component.html',
   styleUrl: './recommendation.component.scss'
 })

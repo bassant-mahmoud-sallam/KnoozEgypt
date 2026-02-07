@@ -7,13 +7,13 @@
     <!-- Back -->
     <a class="back" routerLink="/categories">
       <span class="arrow">←</span>
-      Back
+      {{'category.Back' | translate}}
     </a>
 
     <!-- Search -->
     <div class="search">
       <span class="icon">🔍</span>
-      <input [(ngModel)]="textInput" type="text" placeholder="Search place..." />
+      <input [(ngModel)]="textInput" type="text" [placeholder]="'category.SearchPlaceholder' | translate" />
     </div>
   </div>
 

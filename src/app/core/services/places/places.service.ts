@@ -26,6 +26,16 @@ export class PlacesService {
     return this.httpclient.get(`${enviroment.baseUrl}/places/${idPlace}`);
   }
 
+  // add rate place
+  addRatePlace(idPlace:number , rating: number):Observable<any> {
+    return this.httpclient.post(`${enviroment.baseUrl}/places/${idPlace}/rate` , {rating});
+  }
+
+  // get place rate
+  getPlaceRate(idPlace:string):Observable<any> {
+    return this.httpclient.get(`${enviroment.baseUrl}/places/${idPlace}/ratings`);
+  }
+
 
 
 }

@@ -1,1 +1,105 @@
-<p>edit-profile works!</p>
+<!-- edit-profile.component.html -->
+<section class="edit-page mb-16">
+  <header class="topbar">
+    <div class="title">{{'editProfile.Title' | translate}}</div>
+
+    <button
+      class="done"
+      (click)="done()"
+      [disabled]="saving()"
+      type="button">
+      @if (saving()) { {{'editProfile.Saving' | translate}} } @else { {{'editProfile.Done' | translate}} }
+    </button>
+  </header>
+
+  <!-- Cover -->
+  <div class="cover">
+    <img
+      class="cover-img"
+      [src]="coverPreview() || '/images/defaultcoverimage2.png'"
+      alt="cover"
+    />
+
+    <label class="cover-change">
+      {{'editProfile.Change' | translate}}
+      <input type="file" accept="image/*" (change)="onPickCover($event)" hidden />
+    </label>
+  </div>
+
+  <!-- Profile row -->
+  <div class="profile-row">
+    <div class="avatar-wrap">
+      <img
+        class="avatar"
+        [src]="profilePreview() || '/images/defaultprofile2.png'"
+        alt="profile"
+      />
+      <label class="avatar-change">
+        {{'editProfile.Change' | translate}}
+        <input type="file" accept="image/*" (change)="onPickProfile($event)" hidden />
+      </label>
+    </div>
+
+    <div class="name-big">
+      {{ form.get('name')?.value }}
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form class="form" [formGroup]="form" (ngSubmit)="done()">
+
+    <!-- Name -->
+    <div class="field">
+      <div class="left">
+        <div class="label">{{'editProfile.Name' | translate}}</div>
+        <input class="input" formControlName="name" placeholder="Your name" />
+        @if (form.get('name')?.touched && form.get('name')?.invalid) {
+          <div class="err">{{'editProfile.NameRequired' | translate}}</div>
+        }
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="field">
+      <div class="left">
+        <div class="label">{{'editProfile.Phone' | translate}}</div>
+        <input class="input" formControlName="phone" placeholder="Your phone" />
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="bio">
+      <div class="label">{{'editProfile.Bio' | translate}}</div>
+      <textarea class="textarea" rows="4" formControlName="bio" placeholder="Write your bio..."></textarea>
+    </div>
+
+    <!-- hidden submit for enter -->
+    <button type="submit" hidden></button>
+  </form>
+</section>
+
+<!-- Footer -->
+  <footer class="footer">
+    <a class="fab" routerLink="/profile">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/>
+      </svg>
+    </a>
+
+
+
+    <a class="nav-item" routerLink="/home">
+      <!-- home icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5Z"
+              stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+
+    <a class="fab" routerLink="/createpost">
+      <i class="fa-solid fa-plus"></i>
+    </a>
+
+
+  </footer>

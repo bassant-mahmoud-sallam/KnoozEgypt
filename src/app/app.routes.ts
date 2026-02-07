@@ -27,6 +27,7 @@ export const routes: Routes = [
       {path:"createpost" , loadComponent: ()=> import('./pages/createpost/createpost.component').then((c)=> c.CreatepostComponent) ,title:"Create Post" },
       {path:"anotherUser/:id" , loadComponent: ()=> import('./pages/another-user-profile/another-user-profile.component').then((c)=> c.AnotherUserProfileComponent) ,title:"User Profile" },
       {path:"postDetails/:id" , loadComponent: ()=> import('./pages/post-details/post-details.component').then((c)=> c.PostDetailsComponent) ,title:"Post Details" },
+      {path:"nearBy/:governorateId/:placeId" , loadComponent: ()=> import('./pages/near-by-restaurants/near-by-restaurants.component').then((c)=> c.NearByRestaurantsComponent) ,title:"Near By Restaurants" },
 
 
       {path:"category/:categoryId" , loadComponent: ()=> import('./pages/category-details/category-details.component').then((c)=> c.CategoryDetailsComponent) , title:"Category"},

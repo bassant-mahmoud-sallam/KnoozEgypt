@@ -22,7 +22,7 @@
         <div class="username">{{viewUserProfile.email }}</div>
       </div>
 
-      <a class="edit-btn" routerLink="/editprofile">Edit Profile</a>
+      <a class="edit-btn" routerLink="/editprofile">{{'profile.EditProfile' | translate}}</a>
     </div>
 
     @if (viewUserProfile.bio) {
@@ -32,10 +32,10 @@
     <!-- Tabs -->
     <div class="tabs">
       <button class="tab" [class.active]="tab==='posts'" (click)="setTab('posts')">
-        Posts
+        {{'profile.Posts' | translate}}
       </button>
       <button class="tab" [class.active]="tab==='saved'" (click)="setTab('saved')">
-        Saved
+        {{'profile.Saved' | translate}}
       </button>
     </div>
 
@@ -47,7 +47,7 @@
             <img [src]="userPost.image" [alt]="userPost.caption" />
           </div>
         } @empty {
-          <div>No posts yet</div>
+          <div>{{'profile.NoPostsYet' | translate}}</div>
         }
     </div>
     }
@@ -59,7 +59,7 @@
           <img [src]="savePost.image" alt="not found" />
         </div>
       } @empty {
-        <div> No saved posts</div>
+        <div> {{'profile.NoSavedPosts' | translate}}</div>
       }
     </div>
     }

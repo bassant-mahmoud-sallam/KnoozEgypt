@@ -1,0 +1,89 @@
+{
+  "navbar": {
+    "Home": "الرئيسية",
+    "Posts": "المنشورات",
+    "SavedPlaces": "الأماكن المحفوظة",
+    "ViewProfile": "عرض الملف الشخصي",
+    "CreatePost": "إنشاء منشور",
+    "SignOut": "تسجيل الخروج",
+    "Language": "اللغة",
+    "English": "الإنجليزية (أمريكا)",
+    "Arabic": "العربية"
+  },
+  "home": {
+    "ExploreThe": "استكشف",
+    "TreasuresOfEgypt": "كنوز مصر",
+    "Categories": "التصنيفات",
+    "SeeAll": "عرض الكل",
+    "RecommendedPlaces": "أماكن مقترحة"
+  },
+  "categories": {
+    "SearchPlaceholder": "ابحث عن تصنيف...",
+    "ExploreCategories": "استكشف التصنيفات",
+    "View": "عرض"
+  },
+  "category": {
+    "Back": "رجوع",
+    "SearchPlaceholder": "ابحث عن مكان..."
+  },
+  "placeDetails": {
+    "Back": "رجوع",
+    "About": "نبذة",
+    "Directions": "الاتجاهات",
+    "OpeningHours": "مواعيد العمل",
+    "TicketPrices": "أسعار التذاكر",
+    "NearbyRestaurants": "مطاعم قريبة",
+    "ZoomHint": "استخدم Ctrl + عجلة الماوس لتكبير الخريطة",
+    "BestTimeToVisit": "أفضل وقت للزيارة",
+    "OpenTime": "وقت الفتح",
+    "CloseTime": "وقت الإغلاق"
+  },
+  "posts": {
+    "CommentPlaceholder": "اكتب تعليقك...",
+    "Loading": "جاري التحميل...",
+    "NoComments": "لا توجد تعليقات بعد",
+    "NoMorePosts": "لا توجد منشورات أخرى",
+    "YourComment": "تعليقك"
+  },
+  "savedPlaces": {
+    "Title": "الأماكن المحفوظة",
+    "Loading": "جاري التحميل...",
+    "Empty": "لا توجد أماكن محفوظة بعد"
+  },
+  "profile": {
+    "EditProfile": "تعديل الملف الشخصي",
+    "Posts": "المنشورات",
+    "Saved": "المحفوظات",
+    "NoPostsYet": "لا توجد منشورات بعد",
+    "NoSavedPosts": "لا توجد منشورات محفوظة بعد",
+    "Loading": "جاري التحميل..."
+  },
+  "createPost": {
+    "MindPlaceholder": "بماذا تفكر؟",
+    "AddNewPost": "إضافة منشور جديد",
+    "ClickToUpload": "اضغط للرفع",
+    "OrDragAndDrop": "أو اسحب وأفلت",
+    "PostButton": "نشر",
+    "Loading": "جاري النشر...",
+    "ImageRequired": "الصورة مطلوبة"
+  },
+  "postDetails": {
+    "Back": "رجوع",
+    "EditPost": "تعديل المنشور",
+    "DeletePost": "حذف المنشور",
+    "Cancel": "إلغاء",
+    "Save": "حفظ",
+    "Loading": "جاري التحميل..."
+  },
+  "editProfile": {
+    "Title": "تعديل الملف الشخصي",
+    "Done": "تم",
+    "Saving": "جاري الحفظ...",
+    "Change": "تغيير",
+    "Name": "الاسم",
+    "NameRequired": "الاسم مطلوب",
+    "Phone": "رقم الهاتف",
+    "Bio": "نبذة",
+    "Loading": "جاري الحفظ..."
+  }
+}

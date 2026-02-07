@@ -2,7 +2,7 @@
   <!-- create post -->
   <div class="create-post p-4 rounded-md">
     <!-- input for show alert crate post only  readonly==> is not to write -->
-    <input readonly placeholder="what's in your mind!"  data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="text" id="default-input" class="placeholder-gray-500 bg-[#2b2156] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+    <input readonly [placeholder]="'createPost.MindPlaceholder'| translate"  data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="text" id="default-input" class="placeholder-gray-500 bg-[#2b2156] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
   </div>
   <!-- alert create post -->
   <!-- Main modal -->
@@ -13,7 +13,7 @@
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t  border-gray-200">
             <h3 class="text-xl font-semibold text-[#f5e9ff] ">
-              Add New Post
+              {{'createPost.AddNewPost' | translate}}
             </h3>
             <button type="button" class="end-2.5 text-[#f5e9ff] bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="authentication-modal">
               <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -36,7 +36,7 @@
                     <svg class="w-8 h-8 mb-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                     </svg>
-                    <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                    <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">{{'createPost.ClickToUpload' | translate}}</span> {{'createPost.OrDragAndDrop' | translate}}</p>
                     <p class="text-xs text-gray-500 ">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                   </div>
                   <input  (change)="selectImage($event)"   id="dropzone-file" type="file" class="hidden" />
@@ -44,14 +44,14 @@
               </div>
 
               @if (imageRequiredMsg()) {
-                <p class="text-red-400 text-sm mt-2">Image is required</p>
+                <p class="text-red-400 text-sm mt-2">{{'createPost.ImageRequired' | translate}}</p>
               }
 
 
 
 
 
-              <button type="submit" [disabled]="!hasImage" type="submit" class="disabled:cursor-no-drop w-full text-white bg-[#5b21b6e6] hover:text-[#2b2156] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Post</button>
+              <button type="submit" [disabled]="!hasImage" type="submit" class="disabled:cursor-no-drop w-full text-white bg-[#5b21b6e6] hover:text-[#2b2156] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">{{'createPost.PostButton' | translate}}</button>
             </form>
           </div>
         </div>

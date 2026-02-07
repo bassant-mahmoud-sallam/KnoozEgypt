@@ -8,10 +8,11 @@ import { PostsService } from '../../core/services/posts/posts.service';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-createpost',
-  imports: [CommonModule , ReactiveFormsModule , FormsModule],
+  imports: [CommonModule , ReactiveFormsModule , FormsModule , TranslatePipe],
   templateUrl: './createpost.component.html',
   styleUrl: './createpost.component.scss'
 })

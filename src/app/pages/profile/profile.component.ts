@@ -5,13 +5,14 @@ import { Iuser } from '../../core/interfaces/iuser';
 import { PostsService } from '../../core/services/posts/posts.service';
 import { IPost } from '../../core/interfaces/i-post';
 import { RouterLink } from "@angular/router";
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 type Tab = 'posts' | 'saved';
 
 @Component({
   selector: 'app-profile',
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

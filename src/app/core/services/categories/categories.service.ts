@@ -16,8 +16,10 @@ export class CategoriesService {
   getCategories():Observable<any> {
     return this.httpclient.get(`${enviroment.baseUrl}/categories?page=1&per_page=15`);
   }
-  getPlacesbyCategory(idCategory:string):Observable<any> {
-    return this.httpclient.get(`${enviroment.baseUrl}/categories/${idCategory}/places?page=1&per_page=15`);
+
+  getPlacesbyCategory(idCategory:string , governorateId?: string):Observable<any> {
+    const govParam = governorateId ? `&governorate_id=${governorateId}` : '';
+    return this.httpclient.get(`${enviroment.baseUrl}/categories/${idCategory}/places?page=1&per_page=15${govParam}`);
   }
 
 }

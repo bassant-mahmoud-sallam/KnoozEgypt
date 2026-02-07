@@ -78,8 +78,8 @@ export class CreateAccountComponent implements OnInit{
         }),
         error:((err) => {
           this.loading = false;
-          console.log(err);
-          this.errorMsgUserNotSignIN = err.error.message;
+          //console.log(err.error.errors.email[0]);
+          this.errorMsgUserNotSignIN = err.error.errors.email[0];
 
         })
       })

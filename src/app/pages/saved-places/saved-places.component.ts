@@ -6,10 +6,11 @@ import { NavbarComponent } from "../../shared/navbar/navbar.component";
 import { RouterLink } from '@angular/router';
 import { PlacesService } from '../../core/services/places/places.service';
 import { StarRatingComponent } from "../../shared/star-rating/star-rating.component";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-saved-places',
-  imports: [NavbarComponent, RouterLink, StarRatingComponent],
+  imports: [NavbarComponent, RouterLink, StarRatingComponent , TranslatePipe],
   templateUrl: './saved-places.component.html',
   styleUrl: './saved-places.component.scss'
 })

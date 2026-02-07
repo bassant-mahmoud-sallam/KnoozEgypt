@@ -4,10 +4,11 @@ import { HomeService } from '../../core/services/homeServices/home.service';
 import { Iuser } from '../../core/interfaces/iuser';
 import { IPost } from '../../core/interfaces/i-post';
 import { RouterLink } from "@angular/router";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-another-user-profile',
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe],
   templateUrl: './another-user-profile.component.html',
   styleUrl: './another-user-profile.component.scss'
 })

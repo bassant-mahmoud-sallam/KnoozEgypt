@@ -8,10 +8,11 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from "../../shared/pipe/search.pipe";
 import { PlacesService } from '../../core/services/places/places.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-category-details',
-  imports: [NavbarComponent, StarRatingComponent, RouterLink, FormsModule, SearchPipe],
+  imports: [NavbarComponent, StarRatingComponent, RouterLink, FormsModule, SearchPipe , TranslatePipe],
   templateUrl: './category-details.component.html',
   styleUrl: './category-details.component.scss'
 })

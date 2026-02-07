@@ -2,7 +2,8 @@
   <app-navbar></app-navbar>
 
   <div class="hero__content">
-    <h1 class=" ">Explore The<br/>Treasures of Egypt</h1>
+    <h1 class=" ">{{'home.ExploreThe' | translate}}
+      <br/>{{'home.TreasuresOfEgypt' | translate}}</h1>
   </div>
 </section>
 
@@ -12,9 +13,9 @@
     <!-- Categories -->
     <section class="section">
       <div class="section-head">
-        <h2>Categories</h2>
+        <h2>{{'home.Categories' | translate}}</h2>
         <a class="see-all" routerLink="/categories">
-          See All <span class="arrow">▾</span>
+          {{'home.SeeAll' | translate}} <span class="arrow">▾</span>
         </a>
       </div>
 
@@ -34,9 +35,9 @@
     <!-- Recommended Places -->
     <section class="section">
       <div class="section-head">
-        <h2>Recommended Places</h2>
+        <h2>{{'home.RecommendedPlaces' | translate}}</h2>
         <a class="see-all" routerLink="/recommendation">
-          See All <span class="arrow">▾</span>
+          {{'home.SeeAll' | translate}} <span class="arrow">▾</span>
         </a>
       </div>
 

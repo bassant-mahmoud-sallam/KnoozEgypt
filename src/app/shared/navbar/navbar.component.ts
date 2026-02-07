@@ -7,11 +7,13 @@ import { UserService } from '../../core/services/user/user.service';
 import { initFlowbite } from 'flowbite';
 import { AuthService } from '../../core/services/auth/auth.service';
 import Swal from 'sweetalert2';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MyTranslateService } from '../../core/services/myTranslate/my-translate.service';
 
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive , CommonModule],
+  imports: [RouterLink, RouterLinkActive , CommonModule , TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -21,7 +23,8 @@ export class NavbarComponent implements OnInit {
 
   private readonly userService = inject(UserService);
   private readonly authService = inject(AuthService);
-  private readonly router = inject(Router)
+  private readonly router = inject(Router);
+  private readonly myTranslateService = inject(MyTranslateService);
 
   @Input() variant: 'transparent' | 'purple' = 'transparent';
 
@@ -40,7 +43,7 @@ export class NavbarComponent implements OnInit {
         console.log(res.data);
         this.userName = res.data.name;
         this.userEmail = res.data.email;
-        this.userImageUrl = res.data.cover_image;
+        this.userImageUrl = res.data.profile_image;
       }),
       error: ((err) => {
         console.log(err);
@@ -65,35 +68,52 @@ export class NavbarComponent implements OnInit {
 
   // sign out
   signOut():void {
-    // call api
-    this.authService.logoOut().subscribe({
-      next:((res) => {
-        if(res.success == true) {
-          // remove token from localstorage
-          localStorage.removeItem("userToken");
-          // navigate to login
-          this.router.navigate(['/signin']);
+    Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#2b2156",
+          confirmButtonText: "Yes,sign out"
+          }).then((result) => {
+              if (result.isConfirmed) { // is confirm delete then call api (call api when is clicked delete in confirm)
 
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: res.message,
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      }),
-      error:((err) => {
-        console.log(err);
-      })
-    })
+                // call api
+                this.authService.logoOut().subscribe({
+                  next:((res) => {
+                    if(res.success == true) {
+                      // remove token from localstorage
+                      localStorage.removeItem("userToken");
+                      // navigate to login
+                      this.router.navigate(['/signin']);
+
+                      Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: res.message,
+                          showConfirmButton: false,
+                          timer: 1500
+                      });
+                    }
+                  }),
+                  error:((err) => {
+                    console.log(err);
+                  })
+                })
+
+              }
+            });
+
   }
 
   // lang
   changeLang(code: 'en' | 'ar', label: string) {
     this.selectedLangCode = code;
     this.selectedLangLabel = label;
-    localStorage.setItem('lang', code);
+
+    this.myTranslateService.changeLang(code);
+
 }
 
 }

@@ -10,7 +10,7 @@
       <!-- Search -->
       <div class="search">
         <span class="icon">🔍</span>
-        <input [(ngModel)]="textInput" type="text" placeholder="Search category..." />
+        <input [(ngModel)]="textInput" type="text" [placeholder]="'categories.SearchPlaceholder' | translate" />
       </div>
     </div>
   </header>
@@ -18,7 +18,7 @@
   <!-- Content -->
   <main class="content">
 
-    <h2 class="title">Explore Categories</h2>
+    <h2 class="title">{{'categories.ExploreCategories' | translate}}</h2>
 
     <div class="grid">
       @for (cat of allCategories | search:textInput; track cat.id) {
@@ -30,7 +30,7 @@
           <div class="card-inner">
             <div class="name">{{ cat.name }}</div>
             <a class="view" [routerLink]="['/category' , cat.id]">
-              View <span>→</span>
+              {{'categories.View' | translate}} <span>→</span>
             </a>
           </div>
         </div>

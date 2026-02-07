@@ -1,7 +1,9 @@
 <section class="signin">
   <div class="signin__left">
     <div class="signin__brand">
+
       <!-- <img class="signin__logo" src="/images/logo5.png" alt="Knooz Egypt" /> -->
+
     </div>
   </div>
 
@@ -120,7 +122,7 @@
             }
           }
           @if(passwordControl?.getError("minlength")) {
-            <p class="signin__hint">Password must be at least 6 characters.</p>
+            <p class="signin__hint">Password must be at least 8 characters.</p>
           }
         </div>
 
@@ -227,7 +229,7 @@
           <p class="text-white bg-red-500 px-2 py-4 border shadow rounded my-2">{{errorMsgUserNotSignIN}}</p>
         }
         @if(successMsgUserSignIN) {
-          <p class="text-white bg-[#673ab7] px-2 py-4 border shadow rounded my-2">{{successMsgUserSignIN}}</p>
+          <p class="text-white bg-[#8054cc] px-2 py-4 border shadow rounded my-2">{{successMsgUserSignIN}}</p>
         }
 
         <!-- Create account -->

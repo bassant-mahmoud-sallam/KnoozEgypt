@@ -7,11 +7,11 @@
     <!-- Search -->
     <div class="search">
       <span class="icon">🔍</span>
-      <input [(ngModel)]="textInput" type="text" placeholder="Search place..." />
+      <input [(ngModel)]="textInput" type="text" [placeholder]="'category.SearchPlaceholder' | translate" />
     </div>
   </div>
 
-  <h1 class="title">Recommended Places</h1>
+  <h1 class="title">{{'home.RecommendedPlaces' | translate}}</h1>
 
   <div class="places">
         @for (recommend of allRecommendedPlaces | search:textInput ; track recommend.id) {

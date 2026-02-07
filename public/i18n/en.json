@@ -1,0 +1,89 @@
+{
+  "navbar": {
+    "Home": "Home",
+    "Posts": "Posts",
+    "SavedPlaces": "Saved Places",
+    "ViewProfile": "View Profile",
+    "CreatePost": "Create Post",
+    "SignOut": "Sign out",
+    "Language": "Language",
+    "English": "English (US)",
+    "Arabic": "Arabic"
+  },
+  "home": {
+    "ExploreThe": "Explore The",
+    "TreasuresOfEgypt": "Treasures of Egypt",
+    "Categories": "Categories",
+    "SeeAll": "See All",
+    "RecommendedPlaces": "Recommended Places"
+  },
+  "categories": {
+    "SearchPlaceholder": "Search category...",
+    "ExploreCategories": "Explore Categories",
+    "View": "View"
+  },
+  "category": {
+    "Back": "Back",
+    "SearchPlaceholder": "Search place..."
+  },
+  "placeDetails": {
+    "Back": "Back",
+    "About": "About",
+    "Directions": "Directions",
+    "OpeningHours": "Opening Hours",
+    "TicketPrices": "Ticket Prices",
+    "NearbyRestaurants": "Nearby Restaurants",
+    "ZoomHint": "Use ctrl + scroll to zoom the map",
+    "BestTimeToVisit": "Best Time to Visit",
+    "OpenTime": "Open Time",
+    "CloseTime": "Close Time"
+  },
+  "posts": {
+    "CommentPlaceholder": "Your comment...",
+    "Loading": "Loading...",
+    "NoComments": "No comments yet",
+    "NoMorePosts": "No more posts",
+    "YourComment": "Your comment"
+  },
+  "savedPlaces": {
+    "Title": "Saved Places",
+    "Loading": "Loading...",
+    "Empty": "No saved places yet"
+  },
+  "profile": {
+    "EditProfile": "Edit Profile",
+    "Posts": "Posts",
+    "Saved": "Saved",
+    "NoPostsYet": "No posts yet",
+    "NoSavedPosts": "No saved posts yet",
+    "Loading": "Loading..."
+  },
+  "createPost": {
+    "MindPlaceholder": "What's in your mind!",
+    "AddNewPost": "Add New Post",
+    "ClickToUpload": "Click to upload",
+    "OrDragAndDrop": "or drag and drop",
+    "PostButton": "Post",
+    "Loading": "Posting...",
+    "ImageRequired": "Image is required"
+  },
+  "postDetails": {
+    "Back": "Back",
+    "EditPost": "Edit Post",
+    "DeletePost": "Delete Post",
+    "Cancel": "Cancel",
+    "Save": "Save",
+    "Loading": "Loading..."
+  },
+  "editProfile": {
+    "Title": "Edit Profile",
+    "Done": "Done",
+    "Saving": "Saving...",
+    "Change": "Change",
+    "Name": "Name",
+    "NameRequired": "Name is required",
+    "Phone": "Phone",
+    "Bio": "Bio",
+    "Loading": "Saving..."
+  }
+}

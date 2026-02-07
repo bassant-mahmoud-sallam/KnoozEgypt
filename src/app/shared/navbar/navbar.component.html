@@ -1,7 +1,7 @@
 <nav class="" [ngClass]="variant">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/images/logonav.jpg" class="w-[6rem]" alt="Knooz Egypt" />
+      <img src="/images/logoKnooz.png" class="w-[6rem]" alt="Knooz Egypt" />
     </a>
 
     <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse gap-[0.5rem]">
@@ -20,19 +20,19 @@
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
             <a routerLink="/profile"  class="block px-4 py-2 text-sm text-white font-bold">
-              View Profile
+              {{'navbar.ViewProfile' | translate}}
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
           <li>
             <a routerLink="/createpost" class="block px-4 py-2 text-sm text-white font-bold">
-              Create Post
+              {{'navbar.CreatePost' | translate}}
               <i class="fa-solid fa-plus"></i>
             </a>
           </li>
           <li>
             <a  (click)="signOut()"  class="block px-4 py-2 text-sm  text-red-800 font-bold cursor-pointer">
-              Sign out
+              {{'navbar.SignOut' | translate}}
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
           </li>
@@ -53,13 +53,13 @@
         <ul class="py-2 font-medium" role="none">
           <li>
             <a (click)="changeLang('en', 'English (US)')" class="block px-4 py-2 text-sm text-white hover:bg-[#a88cddd9] cursor-pointer" role="menuitem">
-              English (US)
+              {{'navbar.English' | translate}}
             </a>
           </li>
 
           <li>
             <a (click)="changeLang('ar', 'Arabic')" class="block px-4 py-2 text-sm text-white hover:bg-[#a88cddd9] cursor-pointer" role="menuitem">
-              Arabic
+              {{'navbar.Arabic' | translate}}
             </a>
           </li>
         </ul>
@@ -79,13 +79,13 @@
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
       <ul class="flex flex-col gap-8 font-medium p-4 md:p-0 mt-4 border  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent  bg-[#b08fe9] border-[#c4a7f9d9]">
         <li>
-          <a routerLink="/home" routerLinkActive="link-line" class="block py-2 px-3 text-white rounded-sm md:p-0 text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent " aria-current="page">Home</a>
+          <a routerLink="/home" routerLinkActive="link-line" class="block py-2 px-3 text-white rounded-sm md:p-0 text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent " aria-current="page">{{'navbar.Home' | translate}}</a>
         </li>
         <li>
-          <a routerLink="/posts" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">Posts</a>
+          <a routerLink="/posts" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">{{'navbar.Posts' | translate}}</a>
         </li>
         <li>
-          <a routerLink="/saved-places" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">Saved Places</a>
+          <a routerLink="/saved-places" routerLinkActive="link-line" class="block py-2 px-3 md:p-0 text-white rounded-sm text-lg relative font-bold hover:bg-[#9a71e7d9] md:hover:bg-transparent ">{{'navbar.SavedPlaces' | translate}}</a>
         </li>
 
       </ul>

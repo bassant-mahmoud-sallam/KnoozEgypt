@@ -3,7 +3,7 @@
   <div class="top">
     <a class="back" (click)="back()">
       <span class="arrow">←</span>
-      Back
+        {{'postDetails.Back' | translate}}
     </a>
   </div>
 
@@ -36,11 +36,11 @@
             @if (menuOpen()) {
               <div class="dropdown">
                 <button (click)="openEditModal()">
-                  Edit Post
+                  {{'postDetails.EditPost' | translate}}
                   <i class="fa-regular fa-pen-to-square"></i>
                 </button>
                 <button class="delete" (click)="deletePost()">
-                  Delete Post
+                  {{'postDetails.DeletePost' | translate}}
                   <i class="fa-solid fa-trash"></i>
                 </button>
 
@@ -134,7 +134,7 @@
       <div class="modal-backdrop">
 
         <div class="modal-box">
-          <h2>Edit Post</h2>
+          <h2>{{'postDetails.EditPost' | translate}}</h2>
 
           <textarea
             [value]="editCaption()"
@@ -142,10 +142,10 @@
           </textarea>
 
           <div class="actions">
-            <button (click)="editModalOpen.set(false)">Cancel</button>
+            <button (click)="editModalOpen.set(false)">{{'postDetails.Cancel' | translate}}</button>
 
             <button class="save" (click)="updatePost()">
-              Save
+              {{'postDetails.Save' | translate}}
             </button>
           </div>
         </div>
@@ -161,9 +161,7 @@
           (commentCountChange)="updateCommentsCount($event)">
         </app-comment>
       } @loading {
-        <h1 class="text-center text-gray-500">Loading....</h1>
-      } @placeholder {
-        <h1 class="text-center text-gray-400">Opening comments...</h1>
+        <h1 class="text-center text-gray-500">{{'postDetails.Loading' | translate}}</h1>
       }
     }
 

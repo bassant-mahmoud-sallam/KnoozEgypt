@@ -6,10 +6,11 @@ import { CommentComponent } from "../../shared/comment/comment.component";
 import { RouterLink } from "@angular/router";
 import { UserService } from '../../core/services/user/user.service';
 import Swal from 'sweetalert2';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-post-details',
-  imports: [CommentComponent , RouterLink],
+  imports: [CommentComponent , RouterLink , TranslatePipe],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.scss'
 })

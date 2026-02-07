@@ -5,7 +5,7 @@
 
   <div class="top">
 
-  <h1 class="title">Saved Places</h1>
+  <h1 class="title">{{'savedPlaces.Title' | translate}}</h1>
 
   <!-- Places Grid -->
   <div class="grid">
@@ -40,6 +40,8 @@
 
     </div>
 
+    }@empty {
+      <p class="text-gray-600 mt-4 font-medium text-center text-xl">{{'savedPlaces.Empty' | translate}}</p>
     }
 
   </div>

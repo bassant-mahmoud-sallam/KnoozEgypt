@@ -102,7 +102,7 @@
           @defer {
             <app-comment [idPost]="post.id" (commentCountChange)="updateCommentsCount(post.id, $event)"></app-comment>
           } @loading {
-            <h1 class="text-center text-gray-500">Loading....</h1>
+            <h1 class="text-center text-gray-500">{{'posts.Loading' | translate}}</h1>
           } @placeholder {
             <h1 class="text-center text-gray-400">Opening comments...</h1>
           }
@@ -111,12 +111,12 @@
   }
 
   @if (loading()) {
-    <div class="loading">Loading...</div>
+    <div class="loading">{{'posts.Loading' | translate}}</div>
   }
 
   <div #sentinel class="sentinel"></div>
 
   @if (!hasMorePages() && posts().length) {
-    <div class="end">No more posts</div>
+    <div class="end">{{'posts.NoMorePosts' | translate}}</div>
   }
 </div>

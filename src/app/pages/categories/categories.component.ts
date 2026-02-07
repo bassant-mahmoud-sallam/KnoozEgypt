@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from "../../shared/pipe/search.pipe";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
-  imports: [NavbarComponent, CommonModule, RouterLink, FormsModule, SearchPipe],
+  imports: [NavbarComponent, CommonModule, RouterLink, FormsModule, SearchPipe , TranslatePipe],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })

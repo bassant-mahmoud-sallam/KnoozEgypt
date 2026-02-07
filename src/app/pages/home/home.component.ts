@@ -5,10 +5,11 @@ import { StarRatingComponent } from "../../shared/star-rating/star-rating.compon
 import { RouterLink} from "@angular/router";
 import { IcategoryHome } from '../../core/interfaces/icategory-home';
 import { Iplace } from '../../core/interfaces/iplace';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [NavbarComponent, StarRatingComponent , RouterLink],
+  imports: [NavbarComponent, StarRatingComponent , RouterLink , TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

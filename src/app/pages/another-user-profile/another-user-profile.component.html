@@ -30,7 +30,7 @@
     <!-- Tabs -->
     <div class="tabs">
       <button class="tab active">
-        Posts
+        {{'profile.Posts' | translate}}
       </button>
     </div>
 
@@ -41,7 +41,7 @@
             <img [src]="userPost.image" [alt]="userPost.caption" />
           </div>
         } @empty {
-          <div>No posts yet</div>
+          <div>{{'profile.NoPostsYet' | translate}}</div>
         }
     </div>
 

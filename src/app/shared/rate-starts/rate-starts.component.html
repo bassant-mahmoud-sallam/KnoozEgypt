@@ -1,0 +1,50 @@
+<div class="rate-wrap mx-[48px] my-5" [class.disabled]="alreadyRated">
+  <h3 class="text-lg font-semibold text-gray-800 mb-2">
+    Enter Your Rating
+  </h3>
+  <div class="stars" (mouseleave)="onLeave()">
+    @for (star of starsArray(); track $index) {
+      <button
+      type="button"
+      class="star-btn"
+      (mouseenter)="onHover(star)"
+      (click)="onPick(star)"
+      [class.filled]="star <= displayValue()"
+      [attr.aria-label]="'rate ' + star"
+    >
+      <i class="fa-solid fa-star"></i>
+    </button>
+    }
+  </div>
+
+  @if (!alreadyRated) {
+    <div class="hint">Hover and select a star </div>
+  }@else {
+    <div class="hint done">Thanks! Your rating has been submitted</div>
+  }
+
+
+  <!-- Modal -->
+  @if (modalOpen()) {
+    <div class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-title">Confirm Rating</div>
+
+      <div class="modal-stars">
+        @for (star of starsArray(); track $index) {
+          <span class="star" [class.filled]="star <= selected()"><i class="fa-solid fa-star"></i></span>
+        }
+      </div>
+
+      <div class="modal-text">
+        You are about to submit a rating of<b>{{ selected() }}</b>  out of {{ max }}?
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn ghost" (click)="closeModal()">Cancel</button>
+        <button type="button" class="btn solid" (click)="confirm()">Send Rate</button>
+      </div>
+    </div>
+  </div>
+  }
+</div>

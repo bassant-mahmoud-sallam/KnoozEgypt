@@ -6,11 +6,12 @@ import { UserService } from '../../core/services/user/user.service';
 import Swal from 'sweetalert2';
 
 import { EventEmitter, Output } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-comment',
-  imports: [ReactiveFormsModule ],
+  imports: [ReactiveFormsModule , TranslatePipe],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss'
 })

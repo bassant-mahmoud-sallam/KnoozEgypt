@@ -6,12 +6,13 @@ import { NavbarComponent } from "../../shared/navbar/navbar.component";
 import { Router} from "@angular/router";
 import { CommentComponent } from "../../shared/comment/comment.component";
 import { UserService } from '../../core/services/user/user.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-posts',
   standalone: true,
-  imports: [NavbarComponent, CommentComponent],
+  imports: [NavbarComponent, CommentComponent , TranslatePipe],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss'
 })
